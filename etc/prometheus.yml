@@ -18,3 +18,15 @@ scrape_configs:
     # All agent nodes are written regularly to /tmp/agents.json
     file_sd_configs:
       - files: ['/tmp/agents.json']
+
+  - job_name: 'node-metrics'
+
+    # All master nodes are available at master.mesos via their A record
+    dns_sd_configs:
+      - names: ['master.mesos']
+        type: 'A'
+        port: 9100
+
+    # All agent nodes are written regularly to /tmp/agents.json
+    file_sd_configs:
+      - files: ['/tmp/agents.json']

@@ -1,5 +1,4 @@
 FROM prom/prometheus
-MAINTAINER Philip Norman <philip@mesosphere.io>
 
 # Install rq and the configuration script
 COPY bin/rq /bin/rq

@@ -9,7 +9,7 @@ do
     > /tmp/agents.json
 
   cat /etc/prometheus/meso.json \
-    | rq -jJ "at slaves | spread | at hostname | map (ip) => { ip + ':61091' } | collect | map (n)=>{ {'targets':n} } | collect" \
+    | rq -jJ "at slaves | spread | at hostname | map (ip) => { ip + ':9100' } | collect | map (n)=>{ {'targets':n} } | collect" \
     > /tmp/node-expo-agents.json
 
   sleep 60

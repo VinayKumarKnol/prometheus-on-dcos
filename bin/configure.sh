@@ -4,11 +4,11 @@
 
 while [ 1 ]
 do
-  cat /etc/prometheus/meso.json \
+  wget -qO- http://leader.mesos:5050/state-summary \
     | rq -jJ "at slaves | spread | at hostname | map (ip) => { ip + ':61091' } | collect | map (n)=>{ {'targets':n} } | collect" \
     > /tmp/agents.json
 
-  cat /etc/prometheus/meso.json \
+  wget -qO- http://leader.mesos:5050/state-summary \
     | rq -jJ "at slaves | spread | at hostname | map (ip) => { ip + ':9100' } | collect | map (n)=>{ {'targets':n} } | collect" \
     > /tmp/node-expo-agents.json
 

@@ -17,7 +17,7 @@
       },
       "image": {
         "kind": "DOCKER",
-        "id": "codepirate/prom-on-dcos:1.2",
+        "id": "codepirate/prom-on-dcos:node",
         "forcePull": true
       },
       "healthCheck": {
